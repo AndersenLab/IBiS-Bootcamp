@@ -9,6 +9,7 @@ samtools view -h -b DL238.merged.bam chrIII:1-2000000 | samtools bam2fq - > DL23
 
 # Requires Homebrew, and samtools (dev)
 brew install --devel samtools
+brew install seqtk
 
 #
 # Starting Point
@@ -27,11 +28,13 @@ samtools faidx chrIII.fa.gz chrIII:1-2000000 | bgzip > chrIII.2M.fa.gz
 bwa index chrIII.2M.fa.gz
 
 # Perform alignment.
-bwa mem -t 2 chrIII.2M.fa.gz CB4856.chrIII.fq.gz | samtools view -S -b - > CB4856.chrIII.2M.bam
+bwa mem -t 2 chrIII.2M.fa.gz DL238.chrIII.fq.gz | samtools view -S -b - > DL238.chrIII.2M.bam
 
 # Sort Reads
-samtools sort CB4856.chrIII.2M.bam CB4856.chrIII.2M.sorted
+samtools sort DL238.chrIII.2M.bam DL238.chrIII.2M.sorted
 
 ## Call Variants
-samtools mpileup -uf chrIII.2M.fa.gz  CB4856.chrIII.2M.sorted.bam | bcftools call -mv -Ov > CB4856.vcf.gz
+samtools mpileup -uf chrIII.2M.fa.gz  DL238.chrIII.2M.sorted.bam | bcftools call -mv -Ov > DL238.vcf.gz
 
+## View Statistics
+bcftools stats DL238.vcf.gz 
