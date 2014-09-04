@@ -2,8 +2,9 @@
 
 
 # Used to Subset Original
-samtools view -h -b BGI1-RET1-CB4856_CGC-47de1-6476c.bam chrIII:1-2000000 > CB4856.chrIII.bam
-samtools bam2fq CB4856.chrIII.bam > CB4856.chrIII.fq
+samtools merge DL238.merged.bam `ls *DL238*bam`
+samtools index DL238.merged.bam
+samtools view -h -b CB4856.merged.bam chrIII:1-2000000 | samtools bam2fq - > DL238.chrIII.fq
 
 
 # Requires Homebrew, and samtools (dev)
