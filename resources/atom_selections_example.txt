@@ -1,0 +1,20 @@
+# Excercise 1
+# 1. Hold shift + control and push the up and down arrows. What happens?
+# 2. Try to remove the 1's and two's in the middle using this trick.
+ex_1_a
+ex_1_b
+ex_1_c
+ex_2_a
+ex_2_b
+ex_2_c
+
+# Excercise 2
+# Select an entire column. Move between columns by holding alt and pushing left or right.
+# Move to the beginning or end of the line by holding command and pushing left or right.
+# Jumping between words and to the beginning and ends of lines works in most programs!
+ex_1_a	1	20
+ex_1_b	2	21
+ex_1_c	3	22
+ex_2_a	4	23
+ex_2_b	5	24
+ex_2_c	6	25
