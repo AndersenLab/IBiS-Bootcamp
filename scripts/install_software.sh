@@ -10,6 +10,7 @@ brew tap homebrew/science
 brew install --devel samtools
 brew install seqtk
 brew install bwa
+brew install igv
 
 # wget
 brew install wget
