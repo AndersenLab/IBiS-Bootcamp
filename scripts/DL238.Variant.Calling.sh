@@ -43,4 +43,5 @@ samtools mpileup -uf chrIII.2M.fa.gz  DL238.chrIII.2M.sorted.bam | bcftools call
 cat <(echo "##fileformat=VCFv4.1") <(grep -v '##' DL238.vcf)  > DL238.fixed.vcf
 
 ## View Statistics
-bcftools stats DL238.vcf.gz 
+## Doesn't seem to work. Error is "Could not read the file or the file is not indexed: DL238.vcf.gz"
+# bcftools stats DL238.vcf.gz 
