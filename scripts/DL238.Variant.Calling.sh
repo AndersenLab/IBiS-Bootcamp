@@ -23,11 +23,12 @@ samtools sort DL238.chrIII.2M.bam DL238.chrIII.2M.sorted
 samtools index DL238.chrIII.2M.sorted.bam 
 
 ## Call Variants
-samtools mpileup -uf chrIII.2M.fa.gz  DL238.chrIII.2M.sorted.bam | bcftools call -mv -O v | grep -v '##' > DL238.vcf
-bcftools index DL238.vcf
+samtools mpileup -uf chrIII.2M.fa.gz  DL238.chrIII.2M.sorted.bam | bcftools call -mv -O v | bgzip > DL238.vcf.gz
+bcftools index DL238.vcf.gz
 
 ## Fix VCF So it can be viewed in IGV.
-cat <(echo "##fileformat=VCFv4.1") <(grep -v '##' DL238.vcf)  > DL238.fixed.vcf
+cat <(echo "##fileformat=VCFv4.1") <(gunzip -kfc DL238.vcf.gz | grep -v '##')  | bgzip > DL238.fixed.vcf.gz
+bcftools index DL238.fixed.vcf.gz
 
 say Congratulations! You have assembled your first genome.
 
