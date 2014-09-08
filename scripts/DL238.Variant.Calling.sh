@@ -29,5 +29,7 @@ bcftools index DL238.fixed.vcf
 ## Fix VCF So it can be viewed in IGV.
 cat <(echo "##fileformat=VCFv4.1") <(grep -v '##' DL238.vcf)  > DL238.fixed.vcf
 
+say Congratulations! You have assembled your first genome.
+
 ## View Statistics
 bcftools stats DL238.vcf.gz 
