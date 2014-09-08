@@ -1,16 +1,5 @@
 #!bin/bash
 
-
-# Used to Subset Original
-#samtools merge -f DL238.merged.bam BGI1-RET1-DL238-89d1c-85e53.bam  BGI2-RET1-DL238-8b495-58b92.bam  BGI3-RET1a-DL238-d40d2-9916b.bam
-#samtools index DL238.merged.bam
-#samtools view -h -b DL238.merged.bam chrIII:1-2000000 | samtools bam2fq - > DL238.chrIII.fq
-
-
-# Requires Homebrew, and samtools (dev)
-brew install --devel samtools
-brew install seqtk
-
 #
 # Starting Point
 #
@@ -42,6 +31,3 @@ cat <(echo "##fileformat=VCFv4.1") <(grep -v '##' DL238.vcf)  > DL238.fixed.vcf
 ## View Statistics
 ## Doesn't seem to work. Error is "Could not read the file or the file is not indexed: DL238.vcf.gz"
 # bcftools stats DL238.vcf.gz 
-
-# Generate Stats
-#seqtk comp chrIII.fa.gz 
