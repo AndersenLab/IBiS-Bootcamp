@@ -12,7 +12,6 @@
 # Sequence Analysis
 brew install --devel samtools
 brew install bcftools
-#brew install seqtk
 brew install bwa
 brew install igv
 
