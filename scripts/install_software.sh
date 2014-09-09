@@ -25,5 +25,5 @@ brew cask install atom --appdir=/Applications
 brew cask install qlmarkdown
 
 # R + Rstudio
-brew install R
+#brew install R
 brew cask install rstudio --appdir=/Applications
